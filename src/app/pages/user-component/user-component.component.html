@@ -1,0 +1,22 @@
+<div class="card p-3 shadow-sm">
+
+  <div class="text-center mb-2">
+    <img *ngIf="part?.image"
+         [src]="'http://localhost:8000/storage/' + part.image"
+         class="img-fluid rounded w-100"
+         style="max-height: 200px; object-fit: contain;">
+  </div>
+
+  <h3 class="h5">{{ part?.itemCode }}</h3>
+  <p>{{ part?.description }}</p>
+
+  <p><b>Part:</b> {{ part?.part }}</p>
+  <p><b>Price:</b> ₱{{ part?.price }}</p>
+  <p><b>Quantity:</b> {{ part?.quantity }}</p>
+
+  <a class="btn btn-primary btn-sm"
+     [routerLink]="['/dashboard']">
+    Back
+  </a>
+
+</div>

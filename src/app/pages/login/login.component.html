@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+
+  <div class="card shadow-sm" style="width:100%; max-width:400px;">
+
+    <div class="card-body">
+
+      <h4 class="text-center mb-3">Login</h4>
+
+      <!-- ALERT -->
+      <div *ngIf="message" class="alert" [ngClass]="alertClass">
+        {{ message }}
+      </div>
+
+      <!-- EMAIL -->
+      <input class="form-control mb-2"
+        [(ngModel)]="email"
+        placeholder="Email">
+
+      <!-- PASSWORD -->
+      <input class="form-control mb-3"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Password">
+
+      <!-- BUTTON -->
+      <button class="btn btn-primary w-100"
+        (click)="login()"
+        [disabled]="loading">
+
+        {{ loading ? 'Logging in...' : 'Login' }}
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

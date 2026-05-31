@@ -1,0 +1,63 @@
+<div class="container py-3">
+
+  <!-- HEADER -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+
+    <h4 class="mb-0">Available Parts</h4>
+
+    <button class="btn btn-danger btn-sm" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CARDS -->
+  <div class="row">
+
+    <div class="col-12 col-md-6 col-lg-4 mb-3" *ngFor="let p of parts">
+
+      <div class="card shadow-sm h-100">
+
+        <div class="card-body">
+
+          <h5 class="card-title">
+            {{ p.itemCode }}
+          </h5>
+
+          <p class="card-text text-muted">
+            {{ p.description }}
+          </p>
+
+          <p class="mb-1">
+            <b>Part:</b> {{ p.part }}
+          </p>
+
+          <p class="mb-2">
+            <b>Price:</b> ₱{{ p.price }}
+          </p>
+
+          <p class="mb-3">
+            <b>Quantity:</b> {{ p.quantity }}
+          </p>
+
+          <div class="mb-2">
+            <img *ngIf="p.image"
+              [src]="p.image"
+              class="img-fluid rounded"
+              style="max-height: 80px; object-fit: cover;">
+          </div>
+
+          <a class="btn btn-sm btn-primary"
+             [routerLink]="['/components', p.id]">
+            View Details
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

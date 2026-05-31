@@ -1,0 +1,35 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+}
+table {
+  font-size: 10px;   /* gamay text */
+}
+
+th, td {
+  padding: 4px 6px;  /* gamay spacing */
+}
+
+td, th {
+  white-space: nowrap; /* dili mo wrap */
+}
+@media (max-width: 576px) {
+  table {
+    font-size: 11px;
+  }
+
+  th, td {
+    padding: 4px 6px;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
