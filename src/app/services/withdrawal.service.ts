@@ -47,10 +47,22 @@ export class WithdrawalService {
     );
   }
 
-  approve(id:number) {
+  /*approve(id:number) {
     return this.http.put(
       `${this.apiUrl}/withdrawals/${id}/approve`,
       {},
+      this.getHeaders()
+    );
+  }*/
+  approve(
+    id: number,
+    trackingNumber: string = ''
+  ) {
+    return this.http.put(
+      `${this.apiUrl}/withdrawals/${id}/approve`,
+      {
+        tracking_number: trackingNumber
+      },
       this.getHeaders()
     );
   }

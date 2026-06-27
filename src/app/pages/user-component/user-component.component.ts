@@ -11,6 +11,7 @@ export class UserComponentShowComponent implements OnInit {
 
   part: any = null;
   requestQty: number = 1;
+  notes: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -64,7 +65,8 @@ export class UserComponentShowComponent implements OnInit {
     const payload = {
 
       part_id: this.part.id,
-      quantity_requested: this.requestQty
+      quantity_requested: this.requestQty,
+      notes: this.notes
 
     };
 
@@ -76,6 +78,7 @@ export class UserComponentShowComponent implements OnInit {
           alert(res.message);
 
           this.requestQty = 1;
+          this.notes = '';
           this.router.navigate(['/component']);
 
         },

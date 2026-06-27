@@ -29,18 +29,39 @@ export class AdminWithdrawalsComponent {
 
     });
   }
-
-  approve(id:number)
+  approve(request: any)
   {
+    const trackingNumber = prompt(
+      'Enter LBC Tracking Number'
+    );
+
+    // Cancel user
+    if (trackingNumber === null) {
+      return;
+    }
+
+    // Blank input
+    if (!trackingNumber.trim()) {
+
+      alert('Tracking Number is required.');
+
+      return;
+
+    }
+
     this.withdrawalService
-    .approve(id)
-    .subscribe(()=>{
+      .approve(
+        request.id,
+        trackingNumber.trim()
+      )
+      .subscribe(() => {
 
-      alert('Approved');
+        alert('Approved');
 
-      this.load();
+        this.load();
 
-    });
+      });
+
   }
 
   decline(id:number)

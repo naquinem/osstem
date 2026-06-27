@@ -54,7 +54,7 @@ export class ComponentComponent implements OnInit {
     this.formData.image = event.target.files[0];
   }
 
-  // ✅ ALERT FUNCTION
+  //ALERT FUNCTION
   showAlert(message: string, type: 'success' | 'error') {
     this.alertMessage = message;
     this.alertType = type;

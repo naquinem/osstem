@@ -1,72 +1,140 @@
-<div class="container mt-3">
+<div class="container py-4">
 
-<h3>My Requests</h3>
+  <!-- Header -->
+  <div class="mb-4">
+    <h3 class="fw-bold mb-1">
+      My Withdrawal Requests
+    </h3>
+    <small class="text-muted">
+      View the status of your requested components.
+    </small>
+  </div>
 
-<table class="table table-bordered">
+  <div class="card shadow-sm border-0">
 
-  <thead>
+    <div class="card-body">
 
-  <tr>
-  <th>Reference Number</th>
-  <th>Part</th>
-  <th>Qty</th>
-  <th>Status</th>
-  <th>Date</th>
+      <!-- Empty State -->
+      <div
+        *ngIf="requests.length === 0"
+        class="alert alert-info text-center mb-0">
 
-  </tr>
+        No withdrawal requests found.
 
-  </thead>
+      </div>
 
-  <tbody>
+      <!-- Table -->
+      <div
+        class="table-responsive"
+        *ngIf="requests.length > 0">
 
-  <tr *ngFor="let r of requests">
-  <td>
-  {{r.reference_number}}
-  </td>
-  <td>
-  {{r.part.description}}
-  </td>
+        <table class="table table-hover align-middle mb-0">
 
-  <td>
-  {{r.quantity_requested}}
-  </td>
+          <thead class="table-light">
 
-  <td>
+            <tr>
 
-  <span
-  class="badge bg-warning"
-  *ngIf="r.status=='pending'">
+              <th>Reference No.</th>
+              <th>Part</th>
+              <th class="text-center">Qty</th>
+              <th class="text-center">Status</th>
+              <th>Date Requested</th>
+              <th>Tracking Number</th>
 
-  Pending
+            </tr>
 
-  </span>
+          </thead>
 
-  <span
-  class="badge bg-success"
-  *ngIf="r.status=='approved'">
+          <tbody>
 
-  Approved
+            <tr *ngFor="let r of requests">
 
-  </span>
+              <td>
+                <strong>{{ r.reference_number }}</strong>
+              </td>
 
-  <span
-  class="badge bg-danger"
-  *ngIf="r.status=='declined'">
+              <td>
+                {{ r.part.description }}
+              </td>
 
-  Declined
+              <td class="text-center">
 
-  </span>
+                <span class="badge bg-secondary">
 
-  </td>
+                  {{ r.quantity_requested }}
 
-  <td>
-  {{r.created_at}}
-  </td>
+                </span>
 
-  </tr>
+              </td>
 
-  </tbody>
+              <td class="text-center">
 
-  </table>
+                <span
+                  class="badge bg-warning text-dark"
+                  *ngIf="r.status=='pending'">
+
+                  Pending
+
+                </span>
+
+                <span
+                  class="badge bg-success"
+                  *ngIf="r.status=='approved'">
+
+                  Approved
+
+                </span>
+
+                <span
+                  class="badge bg-danger"
+                  *ngIf="r.status=='declined'">
+
+                  Declined
+
+                </span>
+
+              </td>
+
+              <td>
+
+                {{ r.created_at | date:'MMM d, y h:mm a' }}
+
+              </td>
+
+              <td>
+
+                <span *ngIf="r.tracking_number; else noTracking">
+
+                  <span class="badge bg-primary">
+
+                    {{ r.tracking_number }}
+
+                  </span>
+
+                </span>
+
+                <ng-template #noTracking>
+
+                  <span class="text-muted">
+
+                    N/A
+
+                  </span>
+
+                </ng-template>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>

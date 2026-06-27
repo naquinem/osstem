@@ -4,13 +4,16 @@
 
     <div class="card-body">
 
-      <div class="text-center mb-3">
-
-        <img
-          *ngIf="part?.image"
-          [src]="'http://localhost:8000/storage/' + part.image"
-          class="img-fluid rounded"
-          style="max-height:250px;object-fit:contain;">
+      <div class="text-center mb-4">
+          <img
+            *ngIf="part?.image"
+            [src]="'http://localhost:8000/storage/' + part.image"
+            class="img-fluid rounded shadow"
+            style="
+              max-height:200px;
+              width:100%;
+              object-fit:contain;
+          ">
 
       </div>
 
@@ -51,6 +54,21 @@
           class="form-control"
           [(ngModel)]="requestQty"
           min="1">
+
+      </div>
+      <div class="mb-3">
+
+        <label class="form-label">
+          For equipment under warranty, please include the Installation Date, Serial Number, Equipment Type (K3, K5, T1, T2, T2 Plus, Implant), and any other relevant details.
+          <small class="text-muted">(Optional)</small>
+        </label>
+
+        <textarea
+          class="form-control"
+          rows="4"
+          placeholder="Enter full details"
+          [(ngModel)]="notes">
+        </textarea>
 
       </div>
 
