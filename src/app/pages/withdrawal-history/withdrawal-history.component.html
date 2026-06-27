@@ -1,0 +1,137 @@
+<div class="container-fluid">
+
+  <div class="card shadow border-0">
+
+    <div class="card-header bg-warning">
+      <h4 class="mb-0 fw-bold text-dark">
+        List of withdrawal history
+      </h4>
+    </div>
+
+    <div class="card-body">
+
+      <div
+        *ngIf="user?.length === 0"
+        class="alert alert-info">
+
+        No withdrawal requests found.
+
+      </div>
+
+      <div class="row">
+
+        <div
+          class="col-12 col-md-6 col-lg-4 mb-3"
+          *ngFor="let item of user">
+
+          <div class="card h-100 shadow-sm border-0">
+
+            <div class="card-body">
+
+              <div class="d-flex justify-content-between">
+
+                <h6 class="fw-bold">
+                  Request #{{ item.id }}
+                </h6>
+
+                <span
+                  *ngIf="item.status === 'approved'"
+                  class="badge bg-success">
+
+                  Approved
+
+                </span>
+
+                <span
+                  *ngIf="item.status === 'pending'"
+                  class="badge bg-warning text-dark">
+
+                  Pending
+
+                </span>
+
+                <span
+                  *ngIf="item.status === 'declined'"
+                  class="badge bg-danger">
+
+                  Declined
+
+                </span>
+
+              </div>
+
+              <hr>
+              <p class="mb-1">
+                <strong>Reference No.:</strong>
+                {{ item.reference_number }}
+              </p>
+              <p class="mb-1">
+                <strong>User:</strong>
+                {{ item.user.name }}
+              </p>
+              <p class="mb-1">
+                <strong>Email Address:</strong>
+                {{ item.user.email }}
+              </p>
+              <p class="mb-1">
+                <strong>Address:</strong>
+                {{ item.user.address }}
+              </p>
+              <p class="mb-1">
+                <strong>Description:</strong>
+                {{ item.part.description }}
+              </p>
+              <p class="mb-1">
+                <strong>Item Code:</strong>
+                {{ item.part.itemCode }}
+              </p>
+              <p class="mb-1">
+                <strong>Quantity:</strong>
+                {{ item.quantity_requested }}
+              </p>
+
+              <p class="mb-1">
+                <strong>Requested:</strong>
+                {{ item.created_at | date:'medium' }}
+              </p>
+
+              <p
+                *ngIf="item.approved_at"
+                class="mb-1">
+
+                <strong>Approved:</strong>
+                {{ item.approved_at | date:'medium' }}
+
+              </p>
+
+              <p
+                *ngIf="item.approved_by"
+                class="mb-1">
+
+                <strong>Approved By:</strong>
+                {{ item.approved_by }}
+
+              </p>
+
+              <p
+                *ngIf="item.remarks"
+                class="mb-0">
+
+                <strong>Remarks:</strong>
+                {{ item.remarks }}
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

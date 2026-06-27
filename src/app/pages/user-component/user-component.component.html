@@ -1,22 +1,81 @@
-<div class="card p-3 shadow-sm">
+<div class="container mt-4">
 
-  <div class="text-center mb-2">
-    <img *ngIf="part?.image"
-         [src]="'http://localhost:8000/storage/' + part.image"
-         class="img-fluid rounded w-100"
-         style="max-height: 200px; object-fit: contain;">
+  <div class="card shadow">
+
+    <div class="card-body">
+
+      <div class="text-center mb-3">
+
+        <img
+          *ngIf="part?.image"
+          [src]="'http://localhost:8000/storage/' + part.image"
+          class="img-fluid rounded"
+          style="max-height:250px;object-fit:contain;">
+
+      </div>
+
+      <h3 class="mb-3">
+        {{ part?.itemCode }}
+      </h3>
+
+      <p>
+        <strong>Description:</strong>
+        {{ part?.description }}
+      </p>
+
+      <p>
+        <strong>Part:</strong>
+        {{ part?.part }}
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        ₱{{ part?.price }}
+      </p>
+
+      <p>
+        <strong>Available Stock:</strong>
+        {{ part?.quantity }}
+      </p>
+
+      <hr>
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Quantity To Request
+        </label>
+
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="requestQty"
+          min="1">
+
+      </div>
+
+      <div class="d-grid gap-2">
+
+        <button
+          class="btn btn-success"
+          (click)="requestPart()">
+
+          Request Part
+
+        </button>
+
+        <a
+          class="btn btn-primary"
+          [routerLink]="['/dashboard']">
+
+          Back
+
+        </a>
+
+      </div>
+
+    </div>
+
   </div>
-
-  <h3 class="h5">{{ part?.itemCode }}</h3>
-  <p>{{ part?.description }}</p>
-
-  <p><b>Part:</b> {{ part?.part }}</p>
-  <p><b>Price:</b> ₱{{ part?.price }}</p>
-  <p><b>Quantity:</b> {{ part?.quantity }}</p>
-
-  <a class="btn btn-primary btn-sm"
-     [routerLink]="['/dashboard']">
-    Back
-  </a>
 
 </div>

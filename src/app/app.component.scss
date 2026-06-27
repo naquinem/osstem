@@ -19,6 +19,45 @@ th, td {
 td, th {
   white-space: nowrap; /* dili mo wrap */
 }
+.navbar {
+  background-color: #EC680C !important;
+}
+
+.navbar-brand {
+  font-size: 1.2rem;
+  letter-spacing: .5px;
+}
+
+.nav-link {
+  color: #fff !important;
+  margin-left: 8px;
+  border-radius: 8px;
+  padding: 6px 12px;
+  transition: .2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.card {
+  border-radius: 15px;
+}
+.osstem {
+  color: #F8F9FA;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.implant {
+  color: #F8F9FA;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-left: 4px;
+  margin-top: -2px;
+}
 @media (max-width: 576px) {
   table {
     font-size: 11px;
@@ -29,7 +68,7 @@ td, th {
   }
 
   img {
-    width: 30px;
+    width: 5px;
     height: 30px;
   }
 }

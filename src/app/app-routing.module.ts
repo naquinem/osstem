@@ -7,12 +7,27 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AdminGuard } from './guards/admin.guard';
 import { UserComponentShowComponent } from './pages/user-component/user-component.component';
 import { UserGuard } from './guards/user.guard';
-
+import { RequestHistoryComponent } from './pages/request-history/request-history.component';
+import { AdminWithdrawalsComponent } from './pages/admin-withdrawals/admin-withdrawals.component';
+import { WithdrawalHistoryComponent } from './pages/withdrawal-history/withdrawal-history.component';
 
 const routes: Routes = [
 
-  { path: '', component: LoginComponent },
-
+  {
+    path: '',
+    component:
+    LoginComponent
+  },
+  {
+    path:'history',
+    component:RequestHistoryComponent,
+    canActivate:[UserGuard]
+  },
+  {
+    path:'withdrawals',
+    component:AdminWithdrawalsComponent,
+    canActivate:[AdminGuard]
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -27,7 +42,8 @@ const routes: Routes = [
 
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [AdminGuard]
   },
 
   {
@@ -37,7 +53,13 @@ const routes: Routes = [
 
   {
     path: 'components/:id',
-    component: UserComponentShowComponent
+    component: UserComponentShowComponent,
+    canActivate: [UserGuard]
+  },
+  {
+    path: 'withdrawal-history',
+    component: WithdrawalHistoryComponent,
+    canActivate: [AdminGuard]
   }
 
 ];

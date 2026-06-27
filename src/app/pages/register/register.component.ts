@@ -11,6 +11,7 @@ export class RegisterComponent {
   name = '';
   email = '';
   password = '';
+  address = '';
 
   message = '';
   alertClass = '';
@@ -22,7 +23,7 @@ export class RegisterComponent {
 
     this.message = '';
 
-    if (!this.name || !this.email || !this.password) {
+    if (!this.name || !this.email || !this.password || !this.address) {
       this.message = 'All fields are required';
       this.alertClass = 'alert-danger';
       return;
@@ -34,6 +35,7 @@ export class RegisterComponent {
       name: this.name,
       email: this.email,
       password: this.password,
+      address: this.address,
     }).subscribe({
       next: (res: any) => {
 
@@ -44,6 +46,7 @@ export class RegisterComponent {
         this.name = '';
         this.email = '';
         this.password = '';
+        this.address = '';
 
         this.loading = false;
         this.router.navigate(['/dashboard']);
