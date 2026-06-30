@@ -46,6 +46,11 @@
           </div>
 
           <div class="col-md-4">
+            <input class="form-control" placeholder="Type"
+              [(ngModel)]="formData.type" name="type">
+          </div>
+
+          <div class="col-md-4">
             <input class="form-control" placeholder="Quantity"
               [(ngModel)]="formData.quantity" name="quantity">
           </div>
@@ -90,6 +95,7 @@
 
               <p><b>Description:</b> {{ p.description }}</p>
               <p><b>Part:</b> {{ p.part }}</p>
+              <p><b>Type:</b> {{ p.type }}</p>
               <p><b>Qty:</b> {{ p.quantity }}</p>
               <p><b>Price:</b> ₱{{ p.price }}</p>
 

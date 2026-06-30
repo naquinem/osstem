@@ -17,6 +17,7 @@ export class ComponentComponent implements OnInit {
     itemCode: '',
     description: '',
     part: '',
+    type: '',
     quantity: '',
     price: '',
     image: null as File | null
@@ -71,6 +72,7 @@ export class ComponentComponent implements OnInit {
     fd.append('itemCode', this.formData.itemCode);
     fd.append('description', this.formData.description);
     fd.append('part', this.formData.part);
+    fd.append('type', this.formData.type);
     fd.append('quantity', this.formData.quantity);
     fd.append('price', this.formData.price);
 
@@ -112,6 +114,7 @@ export class ComponentComponent implements OnInit {
       itemCode: part.itemCode,
       description: part.description,
       part: part.part,
+      type: part.type,
       quantity: part.quantity,
       price: part.price,
       image: null
@@ -156,6 +159,7 @@ export class ComponentComponent implements OnInit {
       itemCode: '',
       description: '',
       part: '',
+      type: '',
       quantity: '',
       price: '',
       image: null

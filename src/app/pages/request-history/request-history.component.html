@@ -35,7 +35,9 @@
             <tr>
 
               <th>Reference No.</th>
+              <th>Description</th>
               <th>Part</th>
+              <th>Type</th>
               <th class="text-center">Qty</th>
               <th class="text-center">Status</th>
               <th>Date Requested</th>
@@ -55,6 +57,14 @@
 
               <td>
                 {{ r.part.description }}
+              </td>
+
+              <td>
+                {{ r.part.part }}
+              </td>
+
+              <td>
+                {{ r.part.type }}
               </td>
 
               <td class="text-center">
