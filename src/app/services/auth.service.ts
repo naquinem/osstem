@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  apiUrl = 'http://127.0.0.1:8000/api';
+  apiUrl = 'https://osstem.naquinesm.com/api';
 
   constructor(private http: HttpClient) { }
 

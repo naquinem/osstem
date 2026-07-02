@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ComponentsService {
 
-  apiUrl = 'http://127.0.0.1:8000/api/component';
+  apiUrl = 'https://osstem.naquinesm.com/api/component';
 
   constructor(private http:HttpClient) {}
 
